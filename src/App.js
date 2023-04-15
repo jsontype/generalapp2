@@ -8,6 +8,7 @@ export default function App() {
   // JS
   const [openMovies, setOpenMovies] = useState(false)
   const [openCounter, setOpenCounter] = useState(false)
+  // const [openTodos, setOpenTodos] = useState(false)
 
   // XML
   return (
