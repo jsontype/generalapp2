@@ -16,8 +16,23 @@ export default function Movies() {
     return (
       <div className="movie" key={item.id}>
         <div className="movieDetail">
-          <h2 className="movieTitle">{item.title}</h2>
-          <p className="movieYear">{item.year}</p>
+          <h2 className="movieTitle">
+            {item.title}
+            {item.rating >= 8 && "🔥"}
+          </h2>
+          <div
+            className={
+              item.rating >= 9
+                ? "movieGood"
+                : item.rating >= 7
+                ? "movieSoso"
+                : "movieBad"
+            }
+          >
+            ({item.rating !== 0 ? item.rating : "(평점 없음)"}/10)
+          </div>
+          <div className="movieYear">{item.year}</div>
+          <div className="movieGenre"> {item.genres.join(", ")} </div>
         </div>
         <img
           className="movieImage"
