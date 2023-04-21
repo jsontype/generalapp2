@@ -33,6 +33,15 @@ export default function Movies() {
           </div>
           <div className="movieYear">{item.year}</div>
           <div className="movieGenre"> {item.genres.join(", ")} </div>
+          <div>
+            {" "}
+            상세내용
+            <div>타이틀 : {item.title_long}</div>
+            <div>런타임 : {item.runtime}</div>
+            <div>
+              줄거리 : {item.summary !== "" ? item.summary : "(줄거리 없음)"}
+            </div>
+          </div>
         </div>
         <img
           className="movieImage"
