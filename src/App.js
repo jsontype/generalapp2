@@ -5,7 +5,7 @@ import Movies from "./components/Movies"
 import Counter from "./components/Counter"
 
 export default function App() {
-  // JS
+  // JS 1
   const [openMovies, setOpenMovies] = useState(false)
   const [openCounter, setOpenCounter] = useState(false)
 
