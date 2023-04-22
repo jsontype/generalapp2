@@ -1,18 +1,31 @@
-import { useState, useEffect } from "react";
-import "./style.css";
+import React from "react"
+import { useState, useEffect } from "react"
+import "./style.css"
+
+type MoviesItem = {
+  id: number
+  title: string
+  rating: number
+  year: number
+  genres: string[]
+  title_long: string
+  runtime: number
+  summary: string
+  large_cover_image: string
+}
 
 export default function Movies() {
   // JS
-  const [movies, setMovies] = useState([]);
+  const [movies, setMovies] = useState([])
 
   useEffect(() => {
     // fetch("https://yts.mx/api/v2/list_movies.json")
     fetch("https://yts.mx/api/v2/list_movies.json?sort_by=rating")
       .then((res) => res.json())
-      .then((json) => setMovies(json.data.movies));
-  }, []);
+      .then((json) => setMovies(json.data.movies))
+  }, [])
 
-  const render = movies.map((item) => {
+  const render = movies.map((item: MoviesItem) => {
     return (
       <div className="movie" key={item.id}>
         <div className="movieDetail">
@@ -49,13 +62,13 @@ export default function Movies() {
           alt={item.title}
         />
       </div>
-    );
-  });
+    )
+  })
 
   // XML
   return (
     <>
       <div>{render}</div>
     </>
-  );
+  )
 }
