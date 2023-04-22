@@ -2,11 +2,21 @@ import React from "react"
 import "./style.css"
 import Button from "@mui/material/Button"
 
-export default function TopMenu(props) {
+type TopMenuProps = {
+  setOpenMovies: React.Dispatch<React.SetStateAction<boolean>>
+  setOpenCounter: React.Dispatch<React.SetStateAction<boolean>>
+  setOpenTodos: React.Dispatch<React.SetStateAction<boolean>>
+}
+
+export default function TopMenu({
+  setOpenMovies,
+  setOpenCounter,
+  setOpenTodos,
+}: TopMenuProps) {
   const reset = () => {
-    props.setOpenMovies(false)
-    props.setOpenCounter(false)
-    props.setOpenTodos(false)
+    setOpenMovies(false)
+    setOpenCounter(false)
+    setOpenTodos(false)
   }
 
   return (
@@ -17,7 +27,7 @@ export default function TopMenu(props) {
         variant="contained"
         onClick={() => {
           reset()
-          props.setOpenMovies(true)
+          setOpenMovies(true)
         }}
       >
         무비
@@ -28,7 +38,7 @@ export default function TopMenu(props) {
         variant="contained"
         onClick={() => {
           reset()
-          props.setOpenCounter(true)
+          setOpenCounter(true)
         }}
       >
         카운터
@@ -39,7 +49,7 @@ export default function TopMenu(props) {
         variant="contained"
         onClick={() => {
           reset()
-          props.setOpenTodos(true)
+          setOpenTodos(true)
         }}
       >
         투두리스트

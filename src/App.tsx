@@ -1,3 +1,4 @@
+import React from "react"
 import { useState } from "react"
 
 import TopMenu from "./components/TopMenu"
@@ -15,19 +16,12 @@ export default function App() {
   return (
     <>
       <TopMenu
-        openMovies={openMovies}
         setOpenMovies={setOpenMovies}
-        openCounter={openCounter}
         setOpenCounter={setOpenCounter}
-        openTodos={openTodos}
         setOpenTodos={setOpenTodos}
       />
       {openMovies && <Movies />}
-      {openCounter && (
-        <>
-          <Counter />
-        </>
-      )}
+      {openCounter && <Counter />}
       {openTodos && <Todos />}
     </>
   )
