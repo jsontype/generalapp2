@@ -6,6 +6,7 @@ export default function TopMenu(props) {
   const reset = () => {
     props.setOpenMovies(false)
     props.setOpenCounter(false)
+    props.setOpenTodos(false)
   }
 
   return (
@@ -31,6 +32,17 @@ export default function TopMenu(props) {
         }}
       >
         카운터
+      </Button>
+      <Button
+        className="topMenuButton mr-3"
+        sx={{ mr: "10px" }}
+        variant="contained"
+        onClick={() => {
+          reset()
+          props.setOpenTodos(true)
+        }}
+      >
+        투두리스트
       </Button>
     </div>
   )
