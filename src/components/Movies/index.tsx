@@ -1,5 +1,19 @@
 import { useState, useEffect } from "react";
 import "./style.css";
+import React from "react";
+
+type MoviesItem ={
+  id: number,
+  title: string,
+  rating: number,
+  year: number,
+  genres: string[],
+  title_long: string,
+  runtime: number,
+  summary: string,
+  large_cover_image: string,
+
+}
 
 export default function Movies() {
   // JS
@@ -12,7 +26,7 @@ export default function Movies() {
       .then((json) => setMovies(json.data.movies));
   }, []);
 
-  const render = movies.map((item) => {
+  const render = movies.map((item: MoviesItem) => {
     return (
       <div className="movie" key={item.id}>
         <div className="movieDetail">
