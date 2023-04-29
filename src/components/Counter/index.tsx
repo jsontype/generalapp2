@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import Button from "@mui/material/Button"
+import "./style.css"
 
 export default function Counter() {
   const [number, setNumber] = useState<number>(0) // local state
@@ -7,20 +7,12 @@ export default function Counter() {
   return (
     <div>
       <h1>Counter: {number}</h1>
-      <Button
-        sx={{ mr: "10px" }}
-        variant="outlined"
-        onClick={() => setNumber(number + 1)}
-      >
+      <button className="btn-primary" onClick={() => setNumber(number + 1)}>
         +
-      </Button>
-      <Button
-        sx={{ mr: "10px" }}
-        variant="outlined"
-        onClick={() => setNumber(number - 1)}
-      >
+      </button>
+      <button className="btn-secondary" onClick={() => setNumber(number - 1)}>
         -
-      </Button>
+      </button>
     </div>
   )
 }
