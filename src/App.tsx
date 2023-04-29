@@ -1,10 +1,10 @@
 import React from "react"
 import { useState } from "react"
 
-import TopMenu from "./components/TopMenu"
-import Movies from "./components/Movies"
-import Counter from "./components/Counter"
-import Todos from "./components/Todos"
+import TopMenu from "components/TopMenu"
+import Movies from "components/Movies"
+import Counter from "components/Counter"
+import Todos from "components/Todos"
 
 export default function App() {
   // JS
