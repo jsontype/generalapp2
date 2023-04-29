@@ -6,8 +6,16 @@ import Checkbox from "@mui/material/Checkbox";
 import DeleteIcon from "@mui/icons-material/Delete";
 import Button from "@mui/material/Button";
 
+
+type TodosProps ={
+    userId: number;
+    id: number;
+    title: string;
+    completed: boolean;
+}[]
+
 export default function Todos() {
-  const [todos, setTodos] = useState([]); //useState로 선언하기, todo배열 선언          처음에는 [] 빈칸으로 시작-usedEffect를통해서 값이들어감,todos배열완성
+  const [todos, setTodos] = useState<TodosProps>([]); //useState로 선언하기, todo배열 선언          처음에는 [] 빈칸으로 시작-usedEffect를통해서 값이들어감,todos배열완성
   const [text, setText] = useState("");
 
   const nextId = useRef(1);
@@ -23,7 +31,7 @@ export default function Todos() {
   //     });
   // }, []); //console.log찍어보면 userId가 1인것만 나오게 됨
 
-  const onChange = (e) => {
+  const onChange = (e: { target: { value: string; }; }) => {
     const { value } = e.target;
     if (value.length > 10) {
       alert("최대 10자까지 입력 가능.");
@@ -33,7 +41,7 @@ export default function Todos() {
   }; // input validation
 
   //여기서부터 배열 추가 코드
-  const onCreate = (e) => {
+  const onCreate = (e: { preventDefault: () => void; }) => {
     e.preventDefault(); //form이 새로고침 하는 것을 방지
     if (text.length <= 0) {
       alert("내용을 입력해주세요.");
@@ -56,7 +64,7 @@ export default function Todos() {
   };
 
   //여기서부터 배열 수정 코드
-  const onComplete = (id) => {
+  const onComplete = (id: number) => {
     const result = todos.map((item) => {
       return id === item.id
         ? { ...item, completed: !item.completed }
@@ -67,7 +75,7 @@ export default function Todos() {
   //todos를 사용할 수 있게 됐으니 todos를 꺼내보기
 
   //여기서부터 배열 삭제 코드
-  const onDelete = (id) => {
+  const onDelete = (id: number) => {
     const result = todos.filter((item) => {
       return id !== item.id;
     });
