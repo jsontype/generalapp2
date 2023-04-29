@@ -24,8 +24,8 @@ export default function Todos() {
   const onChange = (e: { target: { value: string } }) => {
     const { value } = e.target
     // input validation
-    if (value.length > 10) {
-      alert("최대 10자까지 입력 가능.")
+    if (value.length > 100) {
+      alert("최대 100자까지 입력 가능.")
       return
     }
     setText(value)
