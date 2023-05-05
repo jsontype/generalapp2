@@ -3,3 +3,20 @@ $pink: pink;
 $blue: blue;
 $orange: orange;
 $red: red;
+$white: white;
+
+@mixin button-color($color) {
+  background: $color;
+  font-size: $font-md;
+  color: $white;
+  border: 1px solid $white;
+  border-radius: $space-sm;
+  width: $space-xl;
+  margin-right: $space-sm;
+  &:hover {
+    background: lighten($color, 10%);
+  }
+  &:active {
+    background: darken($color, 10%);
+  }
+}
