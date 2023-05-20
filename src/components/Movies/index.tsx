@@ -1,29 +1,29 @@
-import { useState, useEffect } from "react";
-import style from "./style.module.scss";
-import React from "react";
-import { useSearchParams } from "react-router-dom";
-import { Link } from "react-router-dom";
+import { useState, useEffect } from "react"
+import style from "./style.module.scss"
+import React from "react"
+import { useSearchParams } from "react-router-dom"
+import { Link } from "react-router-dom"
 
 type MoviesItem = {
-  id: number;
-  title: string;
-  rating: number;
-  year: number;
-  genres: string[];
-  title_long: string;
-  runtime: number;
-  summary: string;
-  large_cover_image: string;
-};
+  id: number
+  title: string
+  rating: number
+  year: number
+  genres: string[]
+  title_long: string
+  runtime: number
+  summary: string
+  large_cover_image: string
+}
 
 export default function Movies() {
   // JS
-  const [movies, setMovies] = useState([]);
+  const [movies, setMovies] = useState([])
 
-  //Query쪽 처리
-  const [searchParams] = useSearchParams();
-  const detail = searchParams.get("detail");
-  const sort = searchParams.get("sort");
+  // Query쪽 처리
+  const [searchParams] = useSearchParams()
+  const detail = searchParams.get("detail")
+  const sort = searchParams.get("sort")
 
   const url =
     sort === "rating"
@@ -32,17 +32,17 @@ export default function Movies() {
       ? "https://yts.mx/api/v2/list_movies.json?sort_by=title"
       : sort === "year"
       ? "https://yts.mx/api/v2/list_movies.json?sort_by=year"
-      : "https://yts.mx/api/v2/list_movies.json";
+      : "https://yts.mx/api/v2/list_movies.json"
 
-  const onDetail = `/movies?${sort && `sort=${sort}`}&detail=true`;
-  const offDetail = `/movies?${sort && `sort=${sort}`}`;
+  const onDetail = `/movies?${sort && `sort=${sort}`}&detail=true`
+  const offDetail = `/movies?${sort && `sort=${sort}`}`
 
   useEffect(() => {
-    //fetch("https://yts.mx/api/v2/list_movies.json")
+    // fetch("https://yts.mx/api/v2/list_movies.json")
     fetch(url)
       .then((res) => res.json())
-      .then((json) => setMovies(json.data.movies));
-  }, [url]);
+      .then((json) => setMovies(json.data.movies))
+  }, [url])
 
   const render = movies.map((item: MoviesItem) => {
     const movieRatingClass =
@@ -50,7 +50,7 @@ export default function Movies() {
         ? "movieGood"
         : item.rating >= 7
         ? "movieSoso"
-        : "movieBad";
+        : "movieBad"
     return (
       <div className={style.movie} key={item.id}>
         <div className={style.movieDetail}>
@@ -89,8 +89,8 @@ export default function Movies() {
           alt={item.title}
         />
       </div>
-    );
-  });
+    )
+  })
 
   // XML
   return (
@@ -103,5 +103,5 @@ export default function Movies() {
       </div>
       <div>{render}</div>
     </>
-  );
+  )
 }

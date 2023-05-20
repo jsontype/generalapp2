@@ -1,9 +1,9 @@
-import React from "react";
-import { Routes, Route, Link } from "react-router-dom";
+import React from "react"
+import { Routes, Route, Link } from "react-router-dom"
 
-import Movies from "components/Movies";
-import Counter from "components/Counter";
-import Todos from "components/Todos";
+import Movies from "components/Movies"
+import Counter from "components/Counter"
+import Todos from "components/Todos"
 
 export default function App() {
   // JS
@@ -19,5 +19,5 @@ export default function App() {
         <Route path="/todos" element={<Todos />} />
       </Routes>
     </>
-  );
+  )
 }

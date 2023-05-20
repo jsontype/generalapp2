@@ -1,8 +1,8 @@
-import React, { useState } from "react";
-import style from "./style.module.scss";
+import React, { useState } from "react"
+import style from "./style.module.scss"
 
 export default function Counter() {
-  const [number, setNumber] = useState<number>(0); // local state
+  const [number, setNumber] = useState<number>(0) // local state
 
   return (
     <div>
@@ -20,5 +20,5 @@ export default function Counter() {
         -
       </button>
     </div>
-  );
+  )
 }
