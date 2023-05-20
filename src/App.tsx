@@ -1,28 +1,23 @@
-import React from "react"
-import { useState } from "react"
+import React from "react";
+import { Routes, Route, Link } from "react-router-dom";
 
-import TopMenu from "components/TopMenu"
-import Movies from "components/Movies"
-import Counter from "components/Counter"
-import Todos from "components/Todos"
+import Movies from "components/Movies";
+import Counter from "components/Counter";
+import Todos from "components/Todos";
 
 export default function App() {
   // JS
-  const [openMovies, setOpenMovies] = useState(false)
-  const [openCounter, setOpenCounter] = useState(false)
-  const [openTodos, setOpenTodos] = useState(false)
 
   // XML
   return (
     <>
-      <TopMenu
-        setOpenMovies={setOpenMovies}
-        setOpenCounter={setOpenCounter}
-        setOpenTodos={setOpenTodos}
-      />
-      {openMovies && <Movies />}
-      {openCounter && <Counter />}
-      {openTodos && <Todos />}
+      <Link to="/movies">무비</Link> /<Link to="/counter">카운터</Link> /
+      <Link to="/todos">투두</Link>
+      <Routes>
+        <Route path="/movies" element={<Movies />} />
+        <Route path="/counter" element={<Counter />} />
+        <Route path="/todos" element={<Todos />} />
+      </Routes>
     </>
-  )
+  );
 }

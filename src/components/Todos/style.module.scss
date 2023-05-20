@@ -1,0 +1,13 @@
+@import "../../style/resources.scss";
+
+.deleteIcon {
+  position: relative;
+  top: 7px;
+  width: $space-2xl;
+  height: $space-2xl;
+}
+
+.inputText {
+  margin-left: $space-md;
+  margin-right: $space-md;
+}

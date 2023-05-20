@@ -1,0 +1,51 @@
+@import "../../style/resources.scss";
+
+.movie {
+  display: flex;
+  color: $gray;
+  border: 1px solid $gray;
+  border-radius: $font-xs;
+  margin-bottom: $font-xs;
+}
+
+.movieDetail {
+  flex: 9;
+  margin: 0px $space-md;
+}
+
+.movieDetail > .movieTitle {
+  font-family: $main;
+  margin-bottom: $space-sm;
+  &:hover {
+    color: $pink;
+  }
+}
+
+.movieImage {
+  width: 30%;
+  flex: 1;
+  border: 1px solid $gray;
+  border-radius: $space-md;
+  margin: $space-md;
+}
+
+.movieYear {
+  font-size: 0.5rem;
+  color: $red;
+}
+
+.movieGood {
+  color: $blue;
+}
+
+.movieSoso {
+  color: $orange;
+}
+
+.movieBad {
+  color: $red;
+}
+
+.moiveGenre {
+  color: $gray;
+}
