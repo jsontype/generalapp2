@@ -1,0 +1,9 @@
+@import "../../style/resources.scss";
+
+.btnPrimary {
+  @include button-color($blue);
+}
+
+.btnSecondary {
+  @include button-color($red);
+}

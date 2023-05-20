@@ -1,5 +1,5 @@
 import React, { useState, useRef } from "react"
-import "./style.css"
+import style from "./style.module.scss"
 // ref는 키값을 설정할 때 사용(게시판 키 등)
 import Checkbox from "@mui/material/Checkbox"
 // 체크박스 사용 mui
@@ -84,7 +84,7 @@ export default function Todos() {
         <span onClick={() => onComplete(item.id)}>
           <Checkbox defaultChecked={item.completed} />
         </span>
-        <span className="deleteIcon">
+        <span className={style.deleteIcon}>
           <DeleteIcon onClick={() => onDelete(item.id)}>삭제</DeleteIcon>
         </span>
       </div> // completed는 true거나 false이기 때문에 삼항연산자로 표시했음
@@ -95,11 +95,11 @@ export default function Todos() {
 
   return (
     <>
-      <div className="App">
+      <div className={style.App}>
         <h1>Todo App</h1>
         <form onSubmit={onCreate}>
           <input
-            className="inputText"
+            className={style.inputText}
             name="todo"
             type="text"
             value={text}
