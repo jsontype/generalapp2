@@ -1,7 +1,7 @@
-import React, { useState } from "react"
+import React, { memo, useState } from "react"
 import style from "./style.module.scss"
 
-export default function Counter() {
+function Counter() {
   const [number, setNumber] = useState<number>(0) // local state
 
   return (
@@ -22,3 +22,5 @@ export default function Counter() {
     </div>
   )
 }
+
+export default memo(Counter)
