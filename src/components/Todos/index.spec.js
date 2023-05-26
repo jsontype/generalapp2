@@ -54,7 +54,6 @@ describe("Todos", () => {
     fireEvent.click(addButton)
 
     // eslint-disable-next-line testing-library/prefer-screen-queries
-    const deleteButton = queryByText("삭제")
     // fireEvent.click(deleteButton)
 
     // 할 일이 삭제되었는지 확인합니다.
