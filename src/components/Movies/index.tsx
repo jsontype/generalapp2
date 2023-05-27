@@ -3,6 +3,7 @@ import style from "./style.module.scss"
 import React from "react"
 import { useSearchParams } from "react-router-dom"
 import { Link } from "react-router-dom"
+import { useTranslation } from "react-i18next"
 
 type MoviesItem = {
   id: number
@@ -18,6 +19,8 @@ type MoviesItem = {
 
 function Movies() {
   // JS
+  const { t } = useTranslation()
+
   const [movies, setMovies] = useState([])
 
   // Query쪽 처리
@@ -67,7 +70,8 @@ function Movies() {
                 {item.rating >= 8 && "🔥"}
               </h2>
               <div className={style[movieRatingClass]}>
-                ({item.rating !== 0 ? item.rating : "(평점 없음)"}/10)
+                ({item.rating !== 0 ? item.rating : `(${t("movies:noRating")})`}
+                /10)
               </div>
               <div className={style.movieYear}>{item.year}</div>
               <div className={style.movieGenre}> {item.genres.join(", ")} </div>
@@ -75,11 +79,17 @@ function Movies() {
               {detail && (
                 <>
                   <div>
-                    <div>타이틀 : {item.title_long}</div>
-                    <div>런타임 : {item.runtime}</div>
                     <div>
-                      줄거리 :{" "}
-                      {item.summary !== "" ? item.summary : "(줄거리 없음)"}
+                      {t("movies:title")} : {item.title_long}
+                    </div>
+                    <div>
+                      {t("movies:runtime")} : {item.runtime}
+                    </div>
+                    <div>
+                      {t("movies:story")} :{" "}
+                      {item.summary !== ""
+                        ? item.summary
+                        : `(${t("movies:noStory")})`}
                     </div>
                   </div>
                 </>
@@ -99,7 +109,7 @@ function Movies() {
           </div>
         )
       }),
-    [detail, movies, offDetail, onDetail]
+    [detail, movies, offDetail, onDetail, t]
   )
 
   // XML
