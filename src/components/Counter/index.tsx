@@ -1,26 +1,25 @@
-import React, { memo, useState } from "react"
+import React from "react"
 import style from "./style.module.scss"
 
-function Counter() {
-  const [number, setNumber] = useState<number>(0) // local state
+// props 타입 정의
+type CounterProps = {
+  number: number
+  onIncrease: () => void
+  onDecrease: () => void
+}
 
+function Counter({ number, onIncrease, onDecrease }: CounterProps) {
   return (
     <div>
       <h1>Counter: {number}</h1>
-      <button
-        className={style.btnPrimary}
-        onClick={() => setNumber(number + 1)}
-      >
+      <button className={style.btnPrimary} onClick={onIncrease}>
         +
       </button>
-      <button
-        className={style.btnSecondary}
-        onClick={() => setNumber(number - 1)}
-      >
+      <button className={style.btnSecondary} onClick={onDecrease}>
         -
       </button>
     </div>
   )
 }
 
-export default memo(Counter)
+export default React.memo(Counter)
