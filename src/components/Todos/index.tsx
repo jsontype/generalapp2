@@ -7,6 +7,7 @@ import DeleteIcon from "@mui/icons-material/Delete"
 import Button from "@mui/material/Button"
 
 import { Todo } from "../../modules/todos"
+import { useSelector } from "react-redux"
 
 // props 타입 정의
 type TodoListProps = {
@@ -91,10 +92,13 @@ function Todos({ todos, onInsert, onToggle, onRemove }: TodoListProps) {
     [handleRemove, handleToggle, todos]
   )
 
+  const count = useSelector((state: any) => state.counter.number)
+
   return (
     <>
       <div className={style.App}>
         <h1>Todo App</h1>
+        <div>카운터: {count}</div>
         <form onSubmit={onCreate}>
           <input
             className={style.inputText}
